@@ -15,9 +15,6 @@ namespace EasyStart
         private int current_wave = 0;
         private double time = 5;
         private Player my_player = new Player();
-        private int attack_cooldown = 2;
-        private int attack_range = 100;
-        private double last_attack = 0;
 
         public MyWorld() : base(1920, 1080)
         {
@@ -50,12 +47,8 @@ namespace EasyStart
             }
 
 
-            //If space pressed, attack() and time_since_last = attack_cooldown.
-        }
-
-        private void attack()
-        {
 
         }
+
     }
 }

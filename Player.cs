@@ -13,11 +13,13 @@ namespace EasyStart
     {
         private float Speed = 500;
         private bool IsDead = false;
-        private float attackCooldown = 0.5f; // Cooldown in seconds
-        private float attackTimer = 0;      // Timer for cooldown
+        private float attack_cooldown = 1;
+        private int attack_range = 300;
+        private double last_attack = 0;
 
         public override void Update(GameTime gameTime)
         {
+            World.ShowText("Attack Cooldown: " + last_attack, 1500, 50);
             var deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             var keyboardState = Keyboard.GetState();
 
@@ -42,16 +44,16 @@ namespace EasyStart
             }
 
             // Reduce attack timer
-            if (attackTimer > 0)
+            if (last_attack > 0)
             {
-                attackTimer -= deltaTime;
+                last_attack -= deltaTime;
             }
 
-            // Check for attack input
-            if (keyboardState.IsKeyDown(Keys.Space) && attackTimer <= 0)
+            // Check for attack 
+            if (keyboardState.IsKeyDown(Keys.Space) && last_attack <= 0)
             {
                 Attack();
-                attackTimer = attackCooldown; // Reset cooldown
+                last_attack = attack_cooldown; 
             }
 
             // Check for collision with goblins
@@ -64,7 +66,21 @@ namespace EasyStart
 
         private void Attack()
         {
-            
+            List<Actor> goblins = World.GetActors(typeof(Goblin));
+            if(goblins != null)
+            {
+                foreach (var goblin in goblins)
+                {
+                    float distance = Vector2.Distance(Position, goblin.Position);
+
+
+                    if (distance <= attack_range)
+                    {
+                        World.RemoveActor(goblin);
+                    }
+                }
+            }
+         
         }
     }
 }
