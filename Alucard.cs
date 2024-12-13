@@ -14,6 +14,8 @@ namespace EasyStart
     {
         private float Speed = 500;
         private Player player;
+        private int hp = 10;
+
         public Alucard(Player player)
         {
             this.player = player;
@@ -23,6 +25,10 @@ namespace EasyStart
             var deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             TurnTowards(player.X, player.Y);
             Move(deltaTime * 200);
+
+            if (hp <= 0)
+            {
+            }
         }
     }
 }

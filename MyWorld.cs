@@ -11,7 +11,6 @@ namespace EasyStart
 {
     internal class MyWorld : World
     {
-        //private Waves waves;
         private int current_wave = 0;
         private double time = 5;
         private Player my_player = new Player();
@@ -20,7 +19,6 @@ namespace EasyStart
         {
             BackgroundTileName = "pixel_back";
 
-            // Spawn the sprites
             Add(my_player, "rsz_player_img", 960, 540);
         }
 

@@ -67,7 +67,8 @@ namespace EasyStart
         private void Attack()
         {
             List<Actor> goblins = World.GetActors(typeof(Goblin));
-            if(goblins != null)
+            
+            if (goblins != null)
             {
                 foreach (var goblin in goblins)
                 {
@@ -80,6 +81,8 @@ namespace EasyStart
                     }
                 }
             }
+
+          
          
         }
     }
