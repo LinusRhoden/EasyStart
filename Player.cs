@@ -56,12 +56,13 @@ namespace EasyStart
                 last_attack = attack_cooldown; 
             }
 
-            // Check for collision with goblins
-            if (IsTouching(typeof(Goblin)))
+            // Check for collision with enemies
+            if (IsTouching(typeof(Goblin)) || IsTouching(typeof(Alucard)))
             {
                 World.ShowText("Game Over", 960, 540);
                 IsDead = true;
             }
+
         }
 
         private void Attack()
@@ -82,8 +83,21 @@ namespace EasyStart
                 }
             }
 
-          
-         
+            List<Actor> alucards = World.GetActors(typeof(Alucard));
+            //((Alucard)alucards[0]).Hp = 2;
+            if (alucards != null)
+            {
+                Alucard alucard = (Alucard)alucards[0];
+
+    
+                float distance = Vector2.Distance(Position, alucard.Position);
+                
+                if (distance <= attack_range)
+                {
+                    alucard.Hp -= 1;
+                }
+
+            }
         }
     }
 }

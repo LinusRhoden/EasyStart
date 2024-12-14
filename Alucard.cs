@@ -16,19 +16,25 @@ namespace EasyStart
         private Player player;
         private int hp = 10;
 
+
         public Alucard(Player player)
         {
             this.player = player;
+        }
+        public int Hp
+        {
+            get { return hp; }
+            set { hp = value; }
         }
         public override void Update(GameTime gameTime)
         {
             var deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             TurnTowards(player.X, player.Y);
             Move(deltaTime * 200);
-
-            if (hp <= 0)
-            {
-            }
+        }
+        public void TakeDamage()
+        {
+            hp -= 1;
         }
     }
 }
