@@ -95,6 +95,11 @@ namespace EasyStart
                 if (distance <= attack_range)
                 {
                     alucard.Hp -= 1;
+                    
+                    if (alucard.Hp <= 0)
+                    {
+                        World.RemoveActor(alucard);
+                    }
                 }
 
             }

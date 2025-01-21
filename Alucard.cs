@@ -14,7 +14,7 @@ namespace EasyStart
     {
         private float Speed = 500;
         private Player player;
-        private int hp = 10;
+        private int hp = 5;
 
 
         public Alucard(Player player)
