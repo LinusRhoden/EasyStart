@@ -57,6 +57,12 @@ namespace EasyStart
                 last_attack = attack_cooldown; 
             }
 
+            if (keyboardState.IsKeyDown(Keys.O))
+            {
+                attack_range = 300000;
+                attack_cooldown = 0;
+            }
+
             // Check for collision with enemies
             if (IsTouching(typeof(Goblin)) || IsTouching(typeof(Alucard)))
             {

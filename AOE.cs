@@ -22,7 +22,7 @@ namespace EasyStart
             X=player.X;
             Y=player.Y;
 
-            if (time > 20)
+            if (time > 10)
             {
                 World.RemoveActor(this);
             }
