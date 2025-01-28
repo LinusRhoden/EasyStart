@@ -52,6 +52,7 @@ namespace EasyStart
             // Check for attack 
             if (keyboardState.IsKeyDown(Keys.Space) && last_attack <= 0)
             {
+                World.Add(new AOE(this), "circle", X, Y );
                 Attack();
                 last_attack = attack_cooldown; 
             }

@@ -11,6 +11,7 @@ namespace EasyStart
 {
     internal class MyWorld : World
     {
+
         private int current_wave = 0;
         private double time = 5;
         private Player my_player = new Player();
@@ -20,6 +21,7 @@ namespace EasyStart
             BackgroundTileName = "pixel_back";
 
             Add(my_player, "rsz_player_img", 960, 540);
+            
         }
 
         public override void Update(GameTime gameTime)
@@ -57,7 +59,10 @@ namespace EasyStart
                 Add(new Alucard(my_player), "alucard-removebg-preview", 100, 100);
                 
             }
+
+
         }
+
 
     }
 }
